@@ -97,7 +97,7 @@ LittlerootTown_OnTransition:
 # 49 "data/maps/LittlerootTown/scripts.pory"
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 # 50 "data/maps/LittlerootTown/scripts.pory"
-	call_if_eq VAR_LITTLEROOT_START, 1, LittlerootTown_EventScript_StartingScene
+	call_if_unset FLAG_STARTSCENE, LittlerootTown_EventScript_StartingScene
 # 51 "data/maps/LittlerootTown/scripts.pory"
 	end
 # 52 "data/maps/LittlerootTown/scripts.pory"
@@ -2034,161 +2034,103 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "Let's go to my LAB.$"
 
 LittlerootTown_EventScript_StartingScene::
-# 1022 "data/maps/LittlerootTown/scripts.pory"
-	delay 60
-# 1023 "data/maps/LittlerootTown/scripts.pory"
-	lockall
-# 1024 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Invisible
-# 1025 "data/maps/LittlerootTown/scripts.pory"
-	waitmovement 0
-# 1026 "data/maps/LittlerootTown/scripts.pory"
-	delay 60
-# 1027 "data/maps/LittlerootTown/scripts.pory"
-	applymovement 7, ProfessorApproach
-# 1028 "data/maps/LittlerootTown/scripts.pory"
-	waitmovement 0
-# 1029 "data/maps/LittlerootTown/scripts.pory"
-	applymovement 8, MomLookLeft
-# 1030 "data/maps/LittlerootTown/scripts.pory"
-	waitmovement 0
-# 1031 "data/maps/LittlerootTown/scripts.pory"
-	delay 60
-# 1032 "data/maps/LittlerootTown/scripts.pory"
-	applymovement 7, ProfessorLeave
-# 1033 "data/maps/LittlerootTown/scripts.pory"
-	delay 60
-# 1034 "data/maps/LittlerootTown/scripts.pory"
-	applymovement 8, MomWalkLeft
-# 1035 "data/maps/LittlerootTown/scripts.pory"
-	waitmovement 0
-# 1036 "data/maps/LittlerootTown/scripts.pory"
-	opendoor 10, 12
-# 1037 "data/maps/LittlerootTown/scripts.pory"
-	waitdooranim
-# 1038 "data/maps/LittlerootTown/scripts.pory"
-	applymovement 8, MomEnterHouse
-# 1039 "data/maps/LittlerootTown/scripts.pory"
-	waitmovement 0
-# 1040 "data/maps/LittlerootTown/scripts.pory"
-	removeobject 8
-# 1041 "data/maps/LittlerootTown/scripts.pory"
-	closedoor 10, 12
-# 1042 "data/maps/LittlerootTown/scripts.pory"
-	waitdooranim
-# 1043 "data/maps/LittlerootTown/scripts.pory"
-	waitmovement 0
-# 1044 "data/maps/LittlerootTown/scripts.pory"
-	removeobject 7
-# 1046 "data/maps/LittlerootTown/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 1047 "data/maps/LittlerootTown/scripts.pory"
-	warpsilent MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
-# 1048 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Visible
-# 1049 "data/maps/LittlerootTown/scripts.pory"
-	fadescreen FADE_FROM_BLACK
 # 1051 "data/maps/LittlerootTown/scripts.pory"
 	setflag FLAG_STARTSCENE
-# 1052 "data/maps/LittlerootTown/scripts.pory"
-	setvar VAR_LITTLEROOT_START, 1
-# 1053 "data/maps/LittlerootTown/scripts.pory"
-	releaseall
 	end
 
 
-# 1057 "data/maps/LittlerootTown/scripts.pory"
+# 1056 "data/maps/LittlerootTown/scripts.pory"
 ProfessorApproach:
-# 1058 "data/maps/LittlerootTown/scripts.pory"
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	walk_down
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	walk_down
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	walk_down
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	walk_down
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	walk_down
+# 1057 "data/maps/LittlerootTown/scripts.pory"
 	walk_down
 # 1058 "data/maps/LittlerootTown/scripts.pory"
-	walk_down
-# 1058 "data/maps/LittlerootTown/scripts.pory"
-	walk_down
-# 1058 "data/maps/LittlerootTown/scripts.pory"
-	walk_down
-# 1058 "data/maps/LittlerootTown/scripts.pory"
-	walk_down
-# 1058 "data/maps/LittlerootTown/scripts.pory"
-	walk_down
-# 1059 "data/maps/LittlerootTown/scripts.pory"
 	walk_right
-# 1059 "data/maps/LittlerootTown/scripts.pory"
+# 1058 "data/maps/LittlerootTown/scripts.pory"
 	walk_right
-# 1059 "data/maps/LittlerootTown/scripts.pory"
+# 1058 "data/maps/LittlerootTown/scripts.pory"
 	walk_right
-# 1059 "data/maps/LittlerootTown/scripts.pory"
+# 1058 "data/maps/LittlerootTown/scripts.pory"
 	walk_right
-# 1059 "data/maps/LittlerootTown/scripts.pory"
+# 1058 "data/maps/LittlerootTown/scripts.pory"
 	walk_right
 	step_end
 
-# 1061 "data/maps/LittlerootTown/scripts.pory"
+# 1060 "data/maps/LittlerootTown/scripts.pory"
 ProfessorLeave:
-# 1062 "data/maps/LittlerootTown/scripts.pory"
+# 1061 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1061 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1061 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1061 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1061 "data/maps/LittlerootTown/scripts.pory"
 	walk_left
 # 1062 "data/maps/LittlerootTown/scripts.pory"
-	walk_left
+	walk_up
 # 1062 "data/maps/LittlerootTown/scripts.pory"
-	walk_left
+	walk_up
 # 1062 "data/maps/LittlerootTown/scripts.pory"
-	walk_left
+	walk_up
 # 1062 "data/maps/LittlerootTown/scripts.pory"
-	walk_left
-# 1063 "data/maps/LittlerootTown/scripts.pory"
 	walk_up
-# 1063 "data/maps/LittlerootTown/scripts.pory"
+# 1062 "data/maps/LittlerootTown/scripts.pory"
 	walk_up
-# 1063 "data/maps/LittlerootTown/scripts.pory"
-	walk_up
-# 1063 "data/maps/LittlerootTown/scripts.pory"
-	walk_up
-# 1063 "data/maps/LittlerootTown/scripts.pory"
-	walk_up
-# 1063 "data/maps/LittlerootTown/scripts.pory"
+# 1062 "data/maps/LittlerootTown/scripts.pory"
 	walk_up
 	step_end
 
-# 1066 "data/maps/LittlerootTown/scripts.pory"
+# 1065 "data/maps/LittlerootTown/scripts.pory"
 MomLookLeft:
-# 1067 "data/maps/LittlerootTown/scripts.pory"
+# 1066 "data/maps/LittlerootTown/scripts.pory"
 	face_left
 	step_end
 
-# 1069 "data/maps/LittlerootTown/scripts.pory"
+# 1068 "data/maps/LittlerootTown/scripts.pory"
 MomWalkLeft:
-# 1070 "data/maps/LittlerootTown/scripts.pory"
+# 1069 "data/maps/LittlerootTown/scripts.pory"
 	walk_left
 	step_end
 
-# 1072 "data/maps/LittlerootTown/scripts.pory"
+# 1071 "data/maps/LittlerootTown/scripts.pory"
 MomEnterHouse:
-# 1073 "data/maps/LittlerootTown/scripts.pory"
+# 1072 "data/maps/LittlerootTown/scripts.pory"
 	walk_up
 	step_end
 
-# 1076 "data/maps/LittlerootTown/scripts.pory"
+# 1075 "data/maps/LittlerootTown/scripts.pory"
 Invisible:
-# 1077 "data/maps/LittlerootTown/scripts.pory"
+# 1076 "data/maps/LittlerootTown/scripts.pory"
 	set_invisible
 	step_end
 
-# 1079 "data/maps/LittlerootTown/scripts.pory"
+# 1078 "data/maps/LittlerootTown/scripts.pory"
 Visible:
-# 1080 "data/maps/LittlerootTown/scripts.pory"
+# 1079 "data/maps/LittlerootTown/scripts.pory"
 	set_visible
 	step_end
 
 LittlerootTown_EventScript_CherensHouseSign::
-# 1084 "data/maps/LittlerootTown/scripts.pory"
+# 1083 "data/maps/LittlerootTown/scripts.pory"
 	lockall
-# 1085 "data/maps/LittlerootTown/scripts.pory"
+# 1084 "data/maps/LittlerootTown/scripts.pory"
 	msgbox LittlerootTown_EventScript_CherensHouseSign_Text_0
-# 1086 "data/maps/LittlerootTown/scripts.pory"
+# 1085 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
 
 LittlerootTown_EventScript_CherensHouseSign_Text_0:
-# 1085 "data/maps/LittlerootTown/scripts.pory"
+# 1084 "data/maps/LittlerootTown/scripts.pory"
 	.string "CHEREN'S HOUSE$"

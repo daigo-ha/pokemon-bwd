@@ -47,7 +47,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
-	call_if_eq VAR_LITTLEROOT_START, 1, LittlerootTown_EventScript_StartingScene
+	call_if_unset FLAG_STARTSCENE, LittlerootTown_EventScript_StartingScene
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1020,37 +1020,36 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 
 script LittlerootTown_EventScript_StartingScene {
 	
-	lockall
-	applymovement(OBJ_EVENT_ID_PLAYER, Invisible)
-	waitmovement(0)
-	delay(60)
-	applymovement(7, ProfessorApproach)
-	waitmovement(0)
-	applymovement(8, MomLookLeft)
-	waitmovement(0)
-	delay(60)
-	applymovement(7, ProfessorLeave)
-	delay(60)
-	applymovement(8, MomWalkLeft)
-	waitmovement(0)
-	opendoor(10, 12)
-	waitdooranim
-	applymovement(8, MomEnterHouse)
-	waitmovement(0)
-	removeobject(8)
-	closedoor(10, 12)
-	waitdooranim
-	waitmovement(0)
-	removeobject(7)
+	// lockall
+	// applymovement(OBJ_EVENT_ID_PLAYER, Invisible)
+	// waitmovement(0)
+	// delay(60)
+	// applymovement(7, ProfessorApproach)
+	// waitmovement(0)
+	// applymovement(8, MomLookLeft)
+	// waitmovement(0)
+	// delay(60)
+	// applymovement(7, ProfessorLeave)
+	// delay(60)
+	// applymovement(8, MomWalkLeft)
+	// waitmovement(0)
+	// opendoor(10, 12)
+	// waitdooranim
+	// applymovement(8, MomEnterHouse)
+	// waitmovement(0)
+	// removeobject(8)
+	// closedoor(10, 12)
+	// waitdooranim
+	// waitmovement(0)
+	// removeobject(7)
 
-	fadescreen(FADE_TO_BLACK)
-	warpsilent(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
-	applymovement(OBJ_EVENT_ID_PLAYER, Visible)
-	fadescreen(FADE_FROM_BLACK)
+	// fadescreen(FADE_TO_BLACK)
+	// warpsilent(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
+	// applymovement(OBJ_EVENT_ID_PLAYER, Visible)
+	// fadescreen(FADE_FROM_BLACK)
 
 	setflag(FLAG_STARTSCENE)
-	setvar(VAR_LITTLEROOT_START, 1)
-	releaseall
+	// releaseall
 	end
 }
 
