@@ -223,7 +223,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_BEGGINING_BIANCA"
+      "flag": "FLAG_MC2F_BIANCA"
     },
     {
       "local_id": "LOCALID_MC2F_CHEREN",
@@ -237,7 +237,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_BEGGINING_CHEREN"
+      "flag": "FLAG_MC2F_CHEREN"
     }
   ],
   "warp_events": [
@@ -279,26 +279,8 @@
     },
     {
       "type": "trigger",
-      "x": 4,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_LITTLEROOT_START",
-      "var_value": "2",
-      "script": "MCRoom_EventScript_ChooseNow"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_LITTLEROOT_START",
-      "var_value": "2",
-      "script": "MCRoom_EventScript_ChooseNow"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 6,
+      "x": 8,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_LITTLEROOT_START",
       "var_value": "2",

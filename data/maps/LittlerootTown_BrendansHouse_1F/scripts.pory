@@ -6,14 +6,8 @@ LittlerootTown_BrendansHouse_1F_MapScripts::
 	.byte 0
 
 LittlerootTown_BrendansHouse_1F_OnLoad:
-	call_if_lt VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_SetMovingBoxes
 	call_if_set FLAG_RECEIVED_RUNNING_SHOES, LittlerootTown_BrendansHouse_1F_EventScript_CheckShowShoesManual
 	end
-
-LittlerootTown_BrendansHouse_1F_EventScript_SetMovingBoxes::
-	setmetatile 5, 4, METATILE_BrendansMaysHouse_MovingBox_Open, TRUE
-	setmetatile 5, 2, METATILE_BrendansMaysHouse_MovingBox_Closed, TRUE
-	return
 
 LittlerootTown_BrendansHouse_1F_EventScript_CheckShowShoesManual::
 	checkplayergender
@@ -28,7 +22,6 @@ LittlerootTown_BrendansHouse_1F_OnTransition:
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToDoor
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToTV
-	call_if_eq VAR_LITTLEROOT_START, 3, MC1F_EventScript_MomApologize
 	end
 
 LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs::
@@ -49,6 +42,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToDoor::
 @ Many of the below scripts have no gender check because they assume youre in the correct house
 @ The below SS Ticket script uses Mays house state by accident(?), but theyre both set identically after the intro
 LittlerootTown_BrendansHouse_1F_OnFrame:
+	map_script_2 VAR_LITTLEROOT_START, 3, MC1F_EventScript_MomApologize
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_BrendansHouse_1F_EventScript_EnterHouseMovingIn
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_BrendansHouse_1F_EventScript_GoUpstairsToSetClock
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_PetalburgGymReport
@@ -440,17 +434,17 @@ PlayersHouse_1F_Text_StillUnknownPokemon:
 
 script MC1F_EventScript_MomApologize{
 	lockall
-	msgbox("Cheren: I'm very sorry about all the trouble, ma'am.")
+	msgbox("Cheren: I'm very sorry about all the trouble,\nma'am.")
 	applymovement(LOCALID_MC1F_BIANCA, moves(walk_slow_right))
 	waitmovement(0)
-	msgbox("Bianca: Well, um...\nWecan clean up...")
-	msgbox("Mom: Cleaning up?\nNo worries. I'll take care of it later.\pShouldn't you be on your way to\nmeet Professor Juniper?")
+	msgbox("Bianca: Well, um...\nWe can clean up...\pMom: Cleaning up?\nNo worries. I'll take care of it later.\p
+			Shouldn't you be on your way to\nmeet Professor Juniper?")
 	msgbox("Cheren: Yes, thank you!\nPlease excuse us.\pCome on.\nLet's go thank Professor Juniper.")
 	applymovement(LOCALID_MC1F_CHEREN, moves(walk_left, face_up))
 	waitmovement(0)
 	msgbox("Cheren: I'll be waiting in front of\nthe Pokémon Research Lab.")
-	// applymovement(LOCALID_MC1F_BIANCA, moves(Common_Movement_ExclamationMark))
-	// waitmovement(0)
+	applymovement(LOCALID_MC1F_BIANCA, Common_Movement_ExclamationMark)
+	waitmovement(0)
 	applymovement(LOCALID_MC1F_BIANCA, moves(face_up))
 	waitmovement(0)
 	msgbox("Bianca: Oh! Wait!\nI've gotta go home first.")
@@ -461,8 +455,13 @@ script MC1F_EventScript_MomApologize{
 	waitmovement(0)
 	applymovement(LOCALID_MC1F_CHEREN, moves(walk_down * 2, walk_right * 2, walk_down * 2))
 	applymovement(LOCALID_MC1F_BIANCA, moves(walk_down * 3, walk_right * 2, walk_down * 2))
+	waitmovement(0)
 
+	// fadeoutbgm(4)
+	// stopbgm
 
+	setflag(FLAG_MC1F_BIANCA)
+	setflag(FLAG_MC1F_CHEREN)
 
 	setvar(VAR_LITTLEROOT_START, 4)
 	releaseall

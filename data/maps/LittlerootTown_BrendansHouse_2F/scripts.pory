@@ -10,10 +10,9 @@ LittlerootTown_BrendansHouse_2F_OnTransition:
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 4, PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
 	call SecretBase_EventScript_SetDecorationFlags
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
-	setvar VAR_LITTLEROOT_START, 1
 	call_if_unset FLAG_STARTER_BAG, MCRoom_EventScript_StarterBag
 	removeobject LOCALID_MC2F_BIANCA
-	setflag FLAG_BEGGINING_BIANCA
+	setflag FLAG_MC2F_BIANCA
 	return
 
 LittlerootTown_BrendansHouse_2F_EventScript_CheckShouldUpdateBrendanPos::
@@ -480,6 +479,7 @@ script NicknameBoxMon{
 
 script MCRoom_EventScript_StarterBag{
 	if (!(flag(FLAG_STARTER_SNIVY) || flag(FLAG_STARTER_TEPIG) || flag(FLAG_STARTER_OSHAWOTT))){
+		setvar(VAR_LITTLEROOT_START, 1)
 		clearflag(FLAG_STARTER_BAG)
 	}
 	else {
@@ -517,7 +517,7 @@ script MCRoom_EventScript_Beggining{
 	waitmessage
 	closemessage
 	delay(90)
-	clearflag(FLAG_BEGGINING_BIANCA)
+	clearflag(FLAG_MC2F_BIANCA)
 	showobjectat(LOCALID_MC2F_BIANCA, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_northeast * 2, walk_right))
@@ -534,8 +534,8 @@ script MCRoom_EventScript_Beggining{
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right, walk_up))
 	waitmovement(0)
-	msgbox("Cheren: Bianca...\lI've known for ten years that you\nhave no sense of time, but...seriously...$")
-	msgbox("Today's the day we can get a\nPokémon from Professor Juniper!$")
+	msgbox("Cheren: Bianca...\lI've known for ten years that you\nhave no sense of time, but...seriously...\pToday's 
+			the day we can get a\nPokémon from Professor Juniper!$")
 	waitmessage
 	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_southwest * 2, walk_left))
 	applymovement(LOCALID_MC2F_BIANCA, moves(walk_down, walk_left * 4, face_down))
@@ -548,8 +548,7 @@ script MCRoom_EventScript_Beggining{
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
 	waitmovement(0)
-	msgbox("Bianca: So, where are the Pokémon?$")
-	msgbox("They were delivered to {PLAYER}'s\nhouse, so {PLAYER} gets first pick.$")
+	msgbox("Bianca: So, where are the Pokémon?\pThey were delivered to {PLAYER}'s\nhouse, so {PLAYER} gets first pick.$")
 	msgbox("Cheren: Naturally.$")
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down, walk_left, face_down))
@@ -557,9 +556,8 @@ script MCRoom_EventScript_Beggining{
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
 	applymovement(LOCALID_MC2F_BIANCA, moves(face_down))
 	waitmovement(0)
-	msgbox("The Pokémon are waiting for us\ninside that bag.$")
-	msgbox("OK, {PLAYER}, you go first and take\na peek at the bag.$")
-	msgbox("I want to meet the Pokémon right now!$")
+	msgbox("The Pokémon are waiting for us\ninside that bag.\pOK, {PLAYER}, you go first and take\na peek at the bag.\p
+			I want to meet the Pokémon right now!$")
 	waitmessage
 	
 	special(RemoveCameraObject)
@@ -574,17 +572,8 @@ movement Movement_MCStart1{
 
 script MCRoom_EventScript_ChooseNow{
 	lockall
-	msgbox("Take a look.\nWe're waiting.$")
-	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
-	if (var(VAR_TEMP_0) == 4){
-		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
-	}
-	elif (var(VAR_TEMP_0) == 3){
-		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
-	}
-	elif (var(VAR_TEMP_0) == 5){
-		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
-	}
+	msgbox("Hey, don't leave.\nWe're waiting.$")
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
 	waitmovement(0)
 	releaseall
 }
@@ -597,8 +586,18 @@ script MCRoom_EventScript_BattleBianca{
 	msgbox("Bianca: OK, I'll take this Pokémon!\nCheren, that one's yours!$")
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down, face_left))
 	waitmovement(0)
-	msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?$")
-	msgbox("Oh, never mind. I wanted ...\nfrom the start, anyway.$")
+	if (var(VAR_STARTER_MON) == 0){ # Snivy
+		msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Tepig\nfrom the start, 
+				anyway.$")
+	}
+	elif (var(VAR_STARTER_MON) == 1){ # Tepig
+		msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Oshawott\nfrom the start, 
+				anyway.$")
+	}
+	elif (var(VAR_STARTER_MON) == 2){ # Oshawott
+		msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Snivy\nfrom the start, 
+				anyway.$")
+	}
 	waitmessage
 	fadescreen(FADE_TO_BLACK)
 	removeobject(15)
@@ -607,12 +606,10 @@ script MCRoom_EventScript_BattleBianca{
 	applymovement(LOCALID_MC2F_BIANCA, moves(walk_fast_right * 3, walk_fast_up * 2, face_left))
 	waitmovement(0)
 	fadescreen(FADE_FROM_BLACK)
-	msgbox("Bianca: Everyone has chosen a Pokémon!\n...So that's that!$")
-	msgbox("Hey, I know!\nLet's have a Pokémon battle!$")
-	msgbox("Cheren: Honestly, Bianca...$")
-	msgbox("Even though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\linside a house.$")
-	msgbox("Don't be a worrywart!\nThese little ones are weak, like you said.$")
-	msgbox("We have to let them battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$")
+	msgbox("Bianca: Everyone has chosen a Pokémon!\n...So that's that!\pHey, I know!\nLet's have a Pokémon battle!$")
+	msgbox("Cheren: Honestly, Bianca...\pEven though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\l
+			inside a house.\pDon't be a worrywart!\nThese little ones are weak, like you said.\pWe have to let them 
+			battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$")
 	waitmessage
 	applymovement(LOCALID_MC2F_BIANCA, Common_Movement_Delay48)
 	waitmovement(0)
@@ -630,9 +627,7 @@ script MCRoom_EventScript_BattleBianca{
 }
 script MCRoom_EventScript_BattleCheren{
 	lockall
-	msgbox("Bianca: Wow...$")
-	msgbox("{PLAYER}, you're gonna be\nan awesome Trainer someday, I can tell!$")
-	msgbox("No doubt!$")
+	msgbox("Bianca: Wow...\p{PLAYER}, you're gonna be\nan awesome Trainer someday, I can tell!\pNo doubt!$")
 	waitmessage
 	msgbox("Cheren: Uh...\n...$")
 	msgbox("Bianca: Would you take a look around?$")
@@ -649,14 +644,12 @@ script MCRoom_EventScript_BattleCheren{
 	msgbox("Bianca: Wh-whoa!\nWhat happened?!$")
 	applymovement(LOCALID_MC2F_BIANCA, moves(face_left))
 	waitmovement(0)
-	msgbox("Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!$")
-	msgbox("I'm so glad that I get to have a Pokémon!$")
-	msgbox("...Oh.\nUm, sorry about your room, {PLAYER}.$")
+	msgbox("Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!\pI'm so glad that I get to have a Pokémon!\p
+			...Oh.\nUm, sorry about your room, {PLAYER}.$")
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down * 2, face_right))
 	waitmovement(0)
-	msgbox("Cheren: You...are completely hopeless.$")
-	msgbox("Here!\nI'll restore your Pokémon for you.$")
+	msgbox("Cheren: You...are completely hopeless.\pHere!\nI'll restore your Pokémon for you.$")
 	// Heals Bianca's Pokémon
 	playfanfare(MUS_HEAL)
 	waitfanfare
@@ -675,18 +668,16 @@ script MCRoom_EventScript_BattleCheren{
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
 	applymovement(LOCALID_MC2F_CHEREN, moves(face_up))
 	waitmovement(0)
-	msgbox("Bianca: Hey, Cheren!\nHow about you battle, too?$")
-	msgbox("With all you know, I'm sure you can\nbattle without turning the room into\la disaster area like I did!$")
-	msgbox("Cheren: I believe you're right!$")
-	msgbox("It'll be no problem for me to keep\nthe room from getting any mesier.$")
-	msgbox("Besides, it's not fair if you two are the\nonly ones who get to have fun battling!$")
+	msgbox("Bianca: Hey, Cheren!\nHow about you battle, too?\pWith all you know, I'm sure you can\nbattle without 
+			turning the room into\la disaster area like I did!$")
+	msgbox("Cheren: I believe you're right!\pIt'll be no problem for me to keep\nthe room from getting any mesier.\p
+			Besides, it's not fair if you two are the\nonly ones who get to have fun battling!$")
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right, face_left))
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
 	waitmovement(0)
-	msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!$")
-	msgbox("Let's see what you can do, ...!$")
+	msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, ...!$")
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, Common_Movement_Delay48)
 	waitmovement(0)
@@ -701,8 +692,8 @@ script MCRoom_EventScript_BattleCheren{
 }
 script MCRoom_EventScript_PostBattles{
 	lockall
-	msgbox("Cheren: I made a strange blunder\nin my first battle, but\lthis feeling I have...\l...I'm finally a Trainer.$")
-	msgbox("But first, we'd better go apologize to\nyour mother about this messed-up room.$")
+	msgbox("Cheren: I made a strange blunder\nin my first battle, but\lthis feeling I have...\l...I'm finally a Trainer
+			.\pBut first, we'd better go apologize to\nyour mother about this messed-up room.$")
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right * 2, walk_up * 3))
 	msgbox("Bianca: Oh!\nI'd better come, too!$")
@@ -712,8 +703,8 @@ script MCRoom_EventScript_PostBattles{
 	waitmovement(0)
 	removeobject(LOCALID_MC2F_BIANCA)
 
-	setflag(FLAG_BEGGINING_BIANCA)
-	setflag(FLAG_BEGGINING_CHEREN)
+	setflag(FLAG_MC2F_BIANCA)
+	setflag(FLAG_MC2F_CHEREN)
 	releaseall
 	end
 }
