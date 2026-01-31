@@ -434,35 +434,80 @@ PlayersHouse_1F_Text_StillUnknownPokemon:
 
 script MC1F_EventScript_MomApologize{
 	lockall
-	msgbox("Cheren: I'm very sorry about all the trouble,\nma'am.")
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_slow_diag_southeast * 2))
+	waitmovement(0)
+	msgbox("Cheren: I'm very sorry about all the\ntrouble, ma'am.$")
 	applymovement(LOCALID_MC1F_BIANCA, moves(walk_slow_right))
 	waitmovement(0)
-	msgbox("Bianca: Well, um...\nWe can clean up...\pMom: Cleaning up?\nNo worries. I'll take care of it later.\p
-			Shouldn't you be on your way to\nmeet Professor Juniper?")
-	msgbox("Cheren: Yes, thank you!\nPlease excuse us.\pCome on.\nLet's go thank Professor Juniper.")
+	msgbox("Bianca: Well, um...\nWe can clean up...\pMom: Cleaning up?\nNo worries. I'll take care of it later.\pShouldn't you be on your way to\nmeet Professor Juniper?\pCheren: Yes, thank you!\nPlease excuse us.\pCome on.\nLet's go thank Professor Juniper.")
 	applymovement(LOCALID_MC1F_CHEREN, moves(walk_left, face_up))
 	waitmovement(0)
 	msgbox("Cheren: I'll be waiting in front of\nthe Pokémon Research Lab.")
 	applymovement(LOCALID_MC1F_BIANCA, Common_Movement_ExclamationMark)
 	waitmovement(0)
+	delay(30)
 	applymovement(LOCALID_MC1F_BIANCA, moves(face_up))
 	waitmovement(0)
 	msgbox("Bianca: Oh! Wait!\nI've gotta go home first.")
 	applymovement(LOCALID_MC1F_BIANCA, moves(face_right))
 	waitmovement(0)
 	msgbox("Thanks for having us over!")
+	closemessage
 	applymovement(LOCALID_MC1F_CHEREN, moves(walk_right))
 	waitmovement(0)
 	applymovement(LOCALID_MC1F_CHEREN, moves(walk_down * 2, walk_right * 2, walk_down * 2))
 	applymovement(LOCALID_MC1F_BIANCA, moves(walk_down * 3, walk_right * 2, walk_down * 2))
 	waitmovement(0)
-
-	// fadeoutbgm(4)
-	// stopbgm
-
-	setflag(FLAG_MC1F_BIANCA)
+	removeobject(LOCALID_MC1F_CHEREN)
+	removeobject(LOCALID_MC1F_BIANCA)
 	setflag(FLAG_MC1F_CHEREN)
+	setflag(FLAG_MC1F_BIANCA)
 
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_slow_diag_northwest * 2))
+	waitmovement(0)
+	delay(30)
+	applymovement(LOCALID_PLAYERS_HOUSE_1F_MOM, moves(walk_left * 2, walk_up * 3, face_left))
+	waitmovement(0)
+	delay(30)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+	waitmovement(0)
+	delay(30)
+	msgbox("Mom: My, My, {PLAYER}.\pPokémon battles are so lively,\naren't they?\pI could hear the Pokémon's\ncries clear down here!")
+	applymovement(LOCALID_PLAYERS_HOUSE_1F_MOM, moves(face_down))
+	waitmovement(0)
+	msgbox("Hm. That sure reminded me of\nmy first Pokémon battle!")
+	applymovement(LOCALID_PLAYERS_HOUSE_1F_MOM, moves(face_left))
+	waitmovement(0)
+	msgbox("Oh, and you know? After a battle,\nyou need to rest your Pokémon!")
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("Your Pokémon is looking great!\pNow, if you're going out,\ndon't forget your 'cross-transceiver'!")
+	closemessage
+	playfanfare(MUS_RG_OBTAIN_KEY_ITEM)
+	waitfanfare
+	msgbox("You're going to thank the\nprofessor too, right?\lBetter get going, honey!$")
+
+	special(RemoveCameraObject)
 	setvar(VAR_LITTLEROOT_START, 4)
 	releaseall
+}
+
+script MC1F_EventScript_Mom {
+	lockall
+	if (var(VAR_LITTLEROOT_START) < 5) {
+		msgbox(MC1F_Text_GoThankProfJuniper)
+	} else {
+		msgbox("Mom: Hi, {PLAYER}!")
+	}
+	closemessage
+	releaseall
+}
+
+text MC1F_Text_GoThankProfJuniper {
+	"You're going to thank the\nprofessor too, right?\lBetter get going, honey!$"
 }

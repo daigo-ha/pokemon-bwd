@@ -867,144 +867,301 @@ MC1F_EventScript_MomApologize::
 # 436 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	lockall
 # 437 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	msgbox MC1F_EventScript_MomApologize_Text_0
+	special SpawnCameraObject
 # 438 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_0
+	applymovement OBJ_EVENT_ID_CAMERA, MC1F_EventScript_MomApologize_Movement_0
 # 439 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	waitmovement 0
 # 440 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	msgbox MC1F_EventScript_MomApologize_Text_1
+	msgbox MC1F_EventScript_MomApologize_Text_0
+# 441 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_1
 # 442 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	msgbox MC1F_EventScript_MomApologize_Text_2
+	waitmovement 0
 # 443 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_CHEREN, MC1F_EventScript_MomApologize_Movement_1
+	msgbox MC1F_EventScript_MomApologize_Text_1
 # 444 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC1F_CHEREN, MC1F_EventScript_MomApologize_Movement_2
 # 445 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	msgbox MC1F_EventScript_MomApologize_Text_3
+	waitmovement 0
 # 446 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_BIANCA, Common_Movement_ExclamationMark
+	msgbox MC1F_EventScript_MomApologize_Text_2
 # 447 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC1F_BIANCA, Common_Movement_ExclamationMark
 # 448 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_2
+	waitmovement 0
 # 449 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	waitmovement 0
+	delay 30
 # 450 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	msgbox MC1F_EventScript_MomApologize_Text_4
-# 451 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_3
+# 451 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
 # 452 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	waitmovement 0
+	msgbox MC1F_EventScript_MomApologize_Text_3
 # 453 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	msgbox MC1F_EventScript_MomApologize_Text_5
+	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_4
 # 454 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_CHEREN, MC1F_EventScript_MomApologize_Movement_4
-# 455 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	waitmovement 0
+# 455 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_MomApologize_Text_4
 # 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_CHEREN, MC1F_EventScript_MomApologize_Movement_5
+	closemessage
 # 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_6
+	applymovement LOCALID_MC1F_CHEREN, MC1F_EventScript_MomApologize_Movement_5
 # 458 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	waitmovement 0
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement LOCALID_MC1F_CHEREN, MC1F_EventScript_MomApologize_Movement_6
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement LOCALID_MC1F_BIANCA, MC1F_EventScript_MomApologize_Movement_7
+# 461 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
+# 462 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	removeobject LOCALID_MC1F_CHEREN
 # 463 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	setflag FLAG_MC1F_BIANCA
+	removeobject LOCALID_MC1F_BIANCA
 # 464 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setflag FLAG_MC1F_CHEREN
-# 466 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	setvar VAR_LITTLEROOT_START, 4
+# 465 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	setflag FLAG_MC1F_BIANCA
 # 467 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, MC1F_EventScript_MomApologize_Movement_8
+# 468 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
+# 469 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	delay 30
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, MC1F_EventScript_MomApologize_Movement_9
+# 471 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
+# 472 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	delay 30
+# 473 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MC1F_EventScript_MomApologize_Movement_4
+# 474 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
+# 475 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	delay 30
+# 476 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_MomApologize_Text_5
+# 477 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, MC1F_EventScript_MomApologize_Movement_10
+# 478 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
+# 479 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_MomApologize_Text_6
+# 480 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, MC1F_EventScript_MomApologize_Movement_11
+# 481 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitmovement 0
+# 482 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_MomApologize_Text_7
+# 483 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	closemessage
+# 484 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 485 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	playfanfare MUS_HEAL
+# 486 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitfanfare
+# 487 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	special HealPlayerParty
+# 488 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 489 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_MomApologize_Text_8
+# 490 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	closemessage
+# 491 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+# 492 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	waitfanfare
+# 493 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_MomApologize_Text_9
+# 495 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	special RemoveCameraObject
+# 496 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	setvar VAR_LITTLEROOT_START, 4
+# 497 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	releaseall
 	return
+
+
+MC1F_EventScript_Mom::
+# 501 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	lockall
+# 502 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	compare VAR_LITTLEROOT_START, 5
+	goto_if_lt MC1F_EventScript_Mom_2
+# 505 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_EventScript_Mom_Text_0
+MC1F_EventScript_Mom_1:
+# 507 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	closemessage
+# 508 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	releaseall
+	return
+
+MC1F_EventScript_Mom_2:
+# 503 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	msgbox MC1F_Text_GoThankProfJuniper
+	goto MC1F_EventScript_Mom_1
 
 
 # 438 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 MC1F_EventScript_MomApologize_Movement_0:
 # 438 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_slow_diag_southeast
+# 438 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_slow_diag_southeast
+	step_end
+
+# 441 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_1:
+# 441 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_slow_right
 	step_end
 
-# 443 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-MC1F_EventScript_MomApologize_Movement_1:
-# 443 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	walk_left
-# 443 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	face_up
-	step_end
-
-# 448 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 444 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 MC1F_EventScript_MomApologize_Movement_2:
-# 448 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 444 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_left
+# 444 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	face_up
 	step_end
 
-# 451 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 450 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 MC1F_EventScript_MomApologize_Movement_3:
-# 451 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 450 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	face_up
+	step_end
+
+# 453 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_4:
+# 453 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	face_right
 	step_end
 
-# 454 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-MC1F_EventScript_MomApologize_Movement_4:
-# 454 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	walk_right
-	step_end
-
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 MC1F_EventScript_MomApologize_Movement_5:
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	walk_down
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	walk_down
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_right
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	walk_right
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	step_end
+
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_6:
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
-# 456 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_down
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_right
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_right
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_down
+# 459 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
 	step_end
 
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-MC1F_EventScript_MomApologize_Movement_6:
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_7:
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_right
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_right
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
-# 457 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 460 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_down
+	step_end
+
+# 467 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_8:
+# 467 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_slow_diag_northwest
+# 467 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_slow_diag_northwest
+	step_end
+
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_9:
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_left
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_left
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_up
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_up
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	walk_up
+# 470 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	face_left
+	step_end
+
+# 477 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_10:
+# 477 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	face_down
+	step_end
+
+# 480 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Movement_11:
+# 480 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	face_left
 	step_end
 
 MC1F_EventScript_MomApologize_Text_0:
-# 437 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	.string "Cheren: I'm very sorry about all the trouble,\nma'am.$"
+# 440 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Cheren: I'm very sorry about all the\ntrouble, ma'am.$"
 
 MC1F_EventScript_MomApologize_Text_1:
-# 440 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	.string "Bianca: Well, um...\nWe can clean up...\pMom: Cleaning up?\nNo worries. I'll take care of it later.\p Shouldn't you be on your way to\nmeet Professor Juniper?$"
+# 443 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Bianca: Well, um...\nWe can clean up...\pMom: Cleaning up?\nNo worries. I'll take care of it later.\pShouldn't you be on your way to\nmeet Professor Juniper?\pCheren: Yes, thank you!\nPlease excuse us.\pCome on.\nLet's go thank Professor Juniper.$"
 
 MC1F_EventScript_MomApologize_Text_2:
-# 442 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	.string "Cheren: Yes, thank you!\nPlease excuse us.\pCome on.\nLet's go thank Professor Juniper.$"
-
-MC1F_EventScript_MomApologize_Text_3:
-# 445 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 446 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	.string "Cheren: I'll be waiting in front of\nthe Pokémon Research Lab.$"
 
-MC1F_EventScript_MomApologize_Text_4:
-# 450 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Text_3:
+# 452 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	.string "Bianca: Oh! Wait!\nI've gotta go home first.$"
 
-MC1F_EventScript_MomApologize_Text_5:
-# 453 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+MC1F_EventScript_MomApologize_Text_4:
+# 455 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	.string "Thanks for having us over!$"
+
+MC1F_EventScript_MomApologize_Text_5:
+# 476 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Mom: My, My, {PLAYER}.\pPokémon battles are so lively,\naren't they?\pI could hear the Pokémon's\ncries clear down here!$"
+
+MC1F_EventScript_MomApologize_Text_6:
+# 479 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Hm. That sure reminded me of\nmy first Pokémon battle!$"
+
+MC1F_EventScript_MomApologize_Text_7:
+# 482 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Oh, and you know? After a battle,\nyou need to rest your Pokémon!$"
+
+MC1F_EventScript_MomApologize_Text_8:
+# 489 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Your Pokémon is looking great!\pNow, if you're going out,\ndon't forget your 'cross-transceiver'!$"
+
+MC1F_EventScript_MomApologize_Text_9:
+# 493 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "You're going to thank the\nprofessor too, right?\lBetter get going, honey!$"
+
+MC1F_EventScript_Mom_Text_0:
+# 505 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "Mom: Hi, {PLAYER}!$"
+
+MC1F_Text_GoThankProfJuniper::
+# 511 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	.string "You're going to thank the\nprofessor too, right?\lBetter get going, honey!$"

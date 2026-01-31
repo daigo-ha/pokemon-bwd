@@ -103,9 +103,9 @@
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCH"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "graphics_id": "OBJ_EVENT_GFX_BRANDON",
       "x": 5,
-      "y": 7,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -113,12 +113,13 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_STARTSCENE"
+      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_CHEREN"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MOM",
-      "x": 11,
-      "y": 13,
+      "local_id": "LOCALID_BIANCA_LITTLEROOT",
+      "graphics_id": "OBJ_EVENT_GFX_GRETA",
+      "x": 9,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -126,7 +127,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_STARTSCENE"
+      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIANCA"
     }
   ],
   "warp_events": [
