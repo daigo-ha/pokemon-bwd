@@ -175,7 +175,6 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	hideplayer
 	closedoor VAR_0x8004, VAR_0x8005
 	waitdooranim
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	return
 
@@ -258,7 +257,7 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 	end
 
 LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
+	msgbox LittlerootTown_Text_FatMan, MSGBOX_NPC
 	end
 
 LittlerootTown_EventScript_Boy::
@@ -968,10 +967,10 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "If anything happens, you can come home.\p"
 	.string "Go on, go get them, honey!$"
 
-LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
+LittlerootTown_Text_FatMan:
+	.string "The power of science is amazing!\p"
+	.string "Now you can use infrared to do all\n"
+	.string "sorts of things in the blink of an eye!$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
 	.string "PROF. BIRCH spends days in his LAB\n"
@@ -1007,8 +1006,8 @@ LittlerootTown_Text_GoodLuckCatchingPokemon:
 	.string "Good luck!$"
 
 LittlerootTown_Text_TownSign:
-	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
+	.string "Nuvema Town\n"
+	.string "The Start of Something Big!$"
 
 LittlerootTown_Text_ProfBirchsLab:
 	.string "PROF. BIRCH'S POKéMON LAB$"
@@ -1054,3 +1053,41 @@ script LittlerootTown_EventScript_SteppingOutOfHouse{
     setvar(VAR_LITTLEROOT_START, 5)
     releaseall
 }
+
+script LittlerootTown_EventScript_Cheren {
+	lock
+	faceplayer
+	msgbox(LittlerootTown_Text_CherenWaitingOutsideLab, MSGBOX_NPC)
+	release
+}
+
+script LittlerootTown_EventScript_LittleGirl {
+	lock
+	faceplayer
+	msgbox(LittlerootTown_Text_LittleGirl, MSGBOX_NPC)
+	release
+}
+
+script LittlerootTown_EventScript_Girl {
+	lockall
+	faceplayer
+	msgbox("Do you think traveling with Pokémon\nchanges people?$")
+	yesnobox(20, 8)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox("Me too! Traveling and thinking about many\nthings can definitely make a difference.$", MSGBOX_NPC)
+		case 1:
+			msgbox("You're right! It's fine to just enjoy the\njourney without overthinking it!$", MSGBOX_NPC)
+	}
+	releaseall
+}
+
+text LittlerootTown_Text_CherenWaitingOutsideLab {
+	"Cheren: I'm sorry, but could you\ngo to Bianca's house?\pI'll bet she's spacing out\nlike she usually does.\lShe's totally flighty.$"
+}
+
+text LittlerootTown_Text_LittleGirl {
+	"I've heard there are a lot of Pokémon\nand many different people in the world.\pWhen I hear stories about them,\nI get very excited!$"
+}
+
+// “”
