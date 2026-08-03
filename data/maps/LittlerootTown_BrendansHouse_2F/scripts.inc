@@ -1094,6 +1094,8 @@ MCRoom_EventScript_Beggining_1:
 # 565 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	setvar VAR_LITTLEROOT_START, 2
 # 566 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	setflag FLAG_SYS_B_DASH
+# 567 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	releaseall
 	return
 
@@ -1103,395 +1105,395 @@ MCRoom_EventScript_Beggining_2:
 	goto MCRoom_EventScript_Beggining_1
 
 
-# 569 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 570 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 Movement_MCStart1:
-# 570 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	walk_left
-# 570 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 571 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_left
 # 571 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	walk_left
+# 572 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_down
-# 571 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 572 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_down
 	step_end
 
 MCRoom_EventScript_ChooseNow::
-# 575 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	lockall
 # 576 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_ChooseNow_Text_0
+	lockall
 # 577 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_Beggining_Movement_0
+	msgbox MCRoom_EventScript_ChooseNow_Text_0
 # 578 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_Beggining_Movement_0
 # 579 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 580 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	releaseall
 	return
 
 
 MCRoom_EventScript_BattleBianca::
-# 583 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 584 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	lockall
-# 585 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleBianca_Movement_0
 # 586 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleBianca_Movement_0
 # 587 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleBianca_Text_0
-# 588 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleBianca_Movement_1
-# 589 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmovement 0
+# 588 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleBianca_Text_0
+# 589 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleBianca_Movement_1
 # 590 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 591 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	compare VAR_STARTER_MON, 0
 	goto_if_eq MCRoom_EventScript_BattleBianca_2
-# 594 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 595 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	compare VAR_STARTER_MON, 1
 	goto_if_eq MCRoom_EventScript_BattleBianca_3
-# 598 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 599 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	compare VAR_STARTER_MON, 2
 	goto_if_eq MCRoom_EventScript_BattleBianca_4
 MCRoom_EventScript_BattleBianca_1:
-# 602 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmessage
 # 603 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 604 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	removeobject 15
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleBianca_Movement_2
-# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_BattleBianca_Movement_3
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleBianca_Movement_4
-# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
-# 609 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	fadescreen FADE_FROM_BLACK
-# 610 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleBianca_Text_4
-# 611 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleBianca_Text_5
-# 614 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmessage
-# 615 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, Common_Movement_Delay48
-# 616 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 604 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	removeobject 15
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleBianca_Movement_2
+# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_BattleBianca_Movement_3
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleBianca_Movement_4
+# 609 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmovement 0
-# 618 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	switch VAR_STARTER_MON
+# 610 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 611 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleBianca_Text_4
+# 612 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleBianca_Text_5
+# 615 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmessage
+# 616 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_BIANCA, Common_Movement_Delay48
+# 617 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
 # 619 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	switch VAR_STARTER_MON
+# 620 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 0, MCRoom_EventScript_BattleBianca_10
-# 621 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 622 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 1, MCRoom_EventScript_BattleBianca_11
-# 623 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 624 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 2, MCRoom_EventScript_BattleBianca_12
 MCRoom_EventScript_BattleBianca_8:
-# 626 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 627 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	releaseall
 	end
 
 MCRoom_EventScript_BattleBianca_2:
-# 591 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 592 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_BattleBianca_Text_1
 	goto MCRoom_EventScript_BattleBianca_1
 
 MCRoom_EventScript_BattleBianca_3:
-# 595 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 596 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_BattleBianca_Text_2
 	goto MCRoom_EventScript_BattleBianca_1
 
 MCRoom_EventScript_BattleBianca_4:
-# 599 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 600 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_BattleBianca_Text_3
 	goto MCRoom_EventScript_BattleBianca_1
 
 MCRoom_EventScript_BattleBianca_10:
-# 620 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 621 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_StartBiancaBattleSnivy
 	goto MCRoom_EventScript_BattleBianca_8
 
 MCRoom_EventScript_BattleBianca_11:
-# 622 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 623 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_StartBiancaBattleTepig
 	goto MCRoom_EventScript_BattleBianca_8
 
 MCRoom_EventScript_BattleBianca_12:
-# 624 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 625 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_StartBiancaBattleOshawott
 	goto MCRoom_EventScript_BattleBianca_8
 
 
 MCRoom_EventScript_BattleCheren::
-# 630 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	lockall
 # 631 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_0
+	lockall
 # 632 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmessage
+	msgbox MCRoom_EventScript_BattleCheren_Text_0
 # 633 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_1
+	waitmessage
 # 634 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmessage
+	msgbox MCRoom_EventScript_BattleCheren_Text_1
 # 635 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleCheren_Movement_0
+	waitmessage
 # 636 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleCheren_Movement_0
 # 637 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	delay 60
+	waitmovement 0
 # 638 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_Beggining_Movement_4
+	delay 60
 # 639 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_Beggining_Movement_4
 # 640 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	delay 60
+	waitmovement 0
 # 641 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_Beggining_Movement_2
+	delay 60
 # 642 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_Beggining_Movement_2
 # 643 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	delay 60
+	waitmovement 0
 # 644 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_2
-# 645 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_Beggining_Movement_1
-# 646 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
-# 647 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_3
-# 649 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmessage
-# 650 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleCheren_Movement_1
-# 651 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
-# 652 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_4
-# 654 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	playfanfare MUS_HEAL
-# 655 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitfanfare
-# 656 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_Beggining_Movement_1
-# 657 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
-# 659 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_5
-# 661 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	playfanfare MUS_HEAL
-# 662 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitfanfare
-# 663 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	special HealPlayerParty
-# 665 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, Common_Movement_ExclamationMark
-# 666 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
-# 667 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	delay 60
-# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleCheren_Movement_2
-# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 645 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleCheren_Text_2
+# 646 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_Beggining_Movement_1
+# 647 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmovement 0
-# 670 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_Beggining_Movement_4
-# 671 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_Beggining_Movement_4
-# 672 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
-# 673 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_6
-# 675 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_BattleCheren_Text_7
-# 677 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 648 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleCheren_Text_3
+# 650 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmessage
+# 651 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleCheren_Movement_1
+# 652 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 653 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleCheren_Text_4
+# 655 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	playfanfare MUS_HEAL
+# 656 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitfanfare
+# 657 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_Beggining_Movement_1
+# 658 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 660 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleCheren_Text_5
+# 662 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	playfanfare MUS_HEAL
+# 663 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitfanfare
+# 664 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	special HealPlayerParty
+# 666 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_BIANCA, Common_Movement_ExclamationMark
+# 667 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	delay 60
+# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_BattleCheren_Movement_2
+# 670 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 671 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_Beggining_Movement_4
+# 672 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_Beggining_Movement_4
+# 673 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 674 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleCheren_Text_6
+# 676 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_BattleCheren_Text_7
 # 678 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	closemessage
+	waitmessage
 # 679 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleCheren_Movement_3
+	closemessage
 # 680 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_BattleCheren_Movement_3
 # 681 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_BattleCheren_Movement_0
-# 682 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmovement 0
+# 682 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MCRoom_EventScript_BattleCheren_Movement_0
 # 683 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	switch VAR_STARTER_MON
+	waitmovement 0
 # 684 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	switch VAR_STARTER_MON
+# 685 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 0, MCRoom_EventScript_BattleCheren_3
-# 686 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 687 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 1, MCRoom_EventScript_BattleCheren_4
-# 688 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 689 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 2, MCRoom_EventScript_BattleCheren_5
 MCRoom_EventScript_BattleCheren_1:
-# 691 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmessage
 # 692 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	closemessage
+	waitmessage
 # 693 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, Common_Movement_Delay48
+	closemessage
 # 694 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, Common_Movement_Delay48
+# 695 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmovement 0
-# 696 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	switch VAR_STARTER_MON
 # 697 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	case 0, MCRoom_EventScript_BattleCheren_8
+	switch VAR_STARTER_MON
 # 698 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	case 1, MCRoom_EventScript_BattleCheren_9
+	case 0, MCRoom_EventScript_BattleCheren_8
 # 699 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	case 1, MCRoom_EventScript_BattleCheren_9
+# 700 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	case 2, MCRoom_EventScript_BattleCheren_10
 MCRoom_EventScript_BattleCheren_6:
-# 701 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 702 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	releaseall
 	end
 
 MCRoom_EventScript_BattleCheren_3:
-# 685 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 686 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_BattleCheren_Text_8
 	goto MCRoom_EventScript_BattleCheren_1
 
 MCRoom_EventScript_BattleCheren_4:
-# 687 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 688 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_BattleCheren_Text_9
 	goto MCRoom_EventScript_BattleCheren_1
 
 MCRoom_EventScript_BattleCheren_5:
-# 689 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 690 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_BattleCheren_Text_10
 	goto MCRoom_EventScript_BattleCheren_1
 
 MCRoom_EventScript_BattleCheren_8:
-# 697 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 698 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_StartCherenBattleSnivy
 	goto MCRoom_EventScript_BattleCheren_6
 
 MCRoom_EventScript_BattleCheren_9:
-# 698 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 699 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_StartCherenBattleTepig
 	goto MCRoom_EventScript_BattleCheren_6
 
 MCRoom_EventScript_BattleCheren_10:
-# 699 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 700 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_StartCherenBattleOshawott
 	goto MCRoom_EventScript_BattleCheren_6
 
 
 MCRoom_EventScript_PostBattles::
-# 705 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	lockall
 # 706 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	lockall
+# 707 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_PostBattles_Text_0
-# 708 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmessage
 # 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_PostBattles_Movement_0
-# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	msgbox MCRoom_EventScript_PostBattles_Text_1
-# 711 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	waitmessage
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	applymovement LOCALID_MC2F_CHEREN, MCRoom_EventScript_PostBattles_Movement_0
+# 711 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	msgbox MCRoom_EventScript_PostBattles_Text_1
 # 712 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	removeobject LOCALID_MC2F_CHEREN
+	waitmessage
 # 713 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_PostBattles_Movement_1
+	removeobject LOCALID_MC2F_CHEREN
 # 714 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_MC2F_BIANCA, MCRoom_EventScript_PostBattles_Movement_1
 # 715 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	waitmovement 0
+# 716 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	removeobject LOCALID_MC2F_BIANCA
-# 717 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	setflag FLAG_MC2F_BIANCA
 # 718 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	setflag FLAG_MC2F_CHEREN
+	setflag FLAG_MC2F_BIANCA
 # 719 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	setflag FLAG_MC2F_CHEREN
+# 720 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	releaseall
 	end
 
 
 MCRoom_EventScript_StartBiancaBattleSnivy::
-# 724 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, MCRoom_Text_BiancaDefeated
 # 725 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, MCRoom_Text_BiancaDefeated
+# 726 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_BattleCheren
 	end
 
 
 MCRoom_EventScript_StartBiancaBattleTepig::
-# 729 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, MCRoom_Text_BiancaDefeated
 # 730 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, MCRoom_Text_BiancaDefeated
+# 731 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_BattleCheren
 	end
 
 
 MCRoom_EventScript_StartBiancaBattleOshawott::
-# 734 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, MCRoom_Text_BiancaDefeated
 # 735 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, MCRoom_Text_BiancaDefeated
+# 736 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_BattleCheren
 	end
 
 
 MCRoom_EventScript_StartCherenBattleSnivy::
-# 744 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, MCRoom_Text_CherenDefeated
 # 745 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, MCRoom_Text_CherenDefeated
+# 746 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_PostBattles
 	end
 
 
 MCRoom_EventScript_StartCherenBattleTepig::
-# 749 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, MCRoom_Text_CherenDefeated
 # 750 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, MCRoom_Text_CherenDefeated
+# 751 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_PostBattles
 	end
 
 
 MCRoom_EventScript_StartCherenBattleOshawott::
-# 754 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, MCRoom_Text_CherenDefeated
 # 755 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, MCRoom_Text_CherenDefeated
+# 756 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_PostBattles
 	end
 
 
 MCRoom_EventScript_Cheren::
-# 772 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	lock
 # 773 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	faceplayer
+	lock
 # 774 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	faceplayer
+# 775 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	compare VAR_LITTLEROOT_START, 2
 	goto_if_eq MCRoom_EventScript_Cheren_2
-# 778 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 779 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_Cheren_Text_0
 MCRoom_EventScript_Cheren_1:
-# 780 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 781 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	release
 	return
 
 MCRoom_EventScript_Cheren_2:
-# 775 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 776 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_Text_CherenWaitingForStarterChoice
 	goto MCRoom_EventScript_Cheren_1
 
 
 MCRoom_EventScript_Bianca::
-# 784 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	lock
 # 785 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	faceplayer
+	lock
 # 786 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+	faceplayer
+# 787 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	compare VAR_LITTLEROOT_START, 2
 	goto_if_eq MCRoom_EventScript_Bianca_2
-# 790 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 791 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_EventScript_Bianca_Text_0
 MCRoom_EventScript_Bianca_1:
-# 792 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 793 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	release
 	return
 
 MCRoom_EventScript_Bianca_2:
-# 787 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 788 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	msgbox MCRoom_Text_BiancaWaitingForStarterChoice
 	goto MCRoom_EventScript_Bianca_1
 
@@ -1592,121 +1594,121 @@ MCRoom_EventScript_Beggining_Movement_9:
 	face_down
 	step_end
 
-# 585 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 586 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleBianca_Movement_0:
-# 585 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 586 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_down
-# 585 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 586 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_right
 	step_end
 
-# 588 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 589 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleBianca_Movement_1:
-# 588 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 589 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_down
-# 588 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 589 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_left
 	step_end
 
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleBianca_Movement_2:
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 605 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_down
 	step_end
 
-# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleBianca_Movement_3:
-# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 606 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_right
 	step_end
 
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleBianca_Movement_4:
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_right
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_right
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_right
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_fast_up
-# 607 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 608 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_left
 	step_end
 
-# 635 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 636 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleCheren_Movement_0:
-# 635 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 636 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_right
 	step_end
 
-# 650 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 651 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleCheren_Movement_1:
-# 650 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 651 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_down
-# 650 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 651 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_down
-# 650 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 651 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_right
 	step_end
 
-# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleCheren_Movement_2:
-# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_up
-# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_up
-# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_left
-# 668 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 669 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_down
 	step_end
 
-# 679 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 680 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_BattleCheren_Movement_3:
-# 679 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 680 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_right
-# 679 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 680 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	face_left
 	step_end
 
-# 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_PostBattles_Movement_0:
-# 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_right
-# 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_right
-# 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_up
-# 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_up
-# 709 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_up
 	step_end
 
-# 713 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 714 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 MCRoom_EventScript_PostBattles_Movement_1:
-# 713 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 714 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_right
-# 713 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 714 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_right
-# 713 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 714 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_right
-# 713 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 714 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	walk_up
 	step_end
 
@@ -1791,105 +1793,105 @@ MCRoom_EventScript_Beggining_Text_8:
 	.string "The Pokémon are waiting for us\ninside that bag.\pOK, {PLAYER}, you go first and take\na peek at the bag.\p I want to meet the Pokémon right now!$"
 
 MCRoom_EventScript_ChooseNow_Text_0:
-# 576 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 577 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Hey, don't leave.\nWe're waiting.$"
 
 MCRoom_EventScript_BattleBianca_Text_0:
-# 587 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 588 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: OK, I'll take this Pokémon!\nCheren, that one's yours!$"
 
 MCRoom_EventScript_BattleBianca_Text_1:
-# 591 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 592 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Tepig\nfrom the start,  anyway.$"
 
 MCRoom_EventScript_BattleBianca_Text_2:
-# 595 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 596 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Oshawott\nfrom the start,  anyway.$"
 
 MCRoom_EventScript_BattleBianca_Text_3:
-# 599 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 600 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Snivy\nfrom the start,  anyway.$"
 
 MCRoom_EventScript_BattleBianca_Text_4:
-# 610 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 611 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Everyone has chosen a Pokémon!\n...So that's that!\pHey, I know!\nLet's have a Pokémon battle!$"
 
 MCRoom_EventScript_BattleBianca_Text_5:
-# 611 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 612 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Honestly, Bianca...\pEven though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\l inside a house.\pDon't be a worrywart!\nThese little ones are weak, like you said.\pWe have to let them  battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$"
 
 MCRoom_EventScript_BattleCheren_Text_0:
-# 631 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 632 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Wow...\p{PLAYER}, you're gonna be\nan awesome Trainer someday, I can tell!\pNo doubt!$"
 
 MCRoom_EventScript_BattleCheren_Text_1:
-# 633 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 634 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Uh...\n...\pBianca, Would you take a look around?$"
 
 MCRoom_EventScript_BattleCheren_Text_2:
-# 644 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 645 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Wh-whoa!\nWhat happened?!$"
 
 MCRoom_EventScript_BattleCheren_Text_3:
-# 647 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 648 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!\pI'm so glad that I get to have a\nPokémon!\p ...Oh.\nUm, sorry about your room, {PLAYER}.$"
 
 MCRoom_EventScript_BattleCheren_Text_4:
-# 652 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 653 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: You...are completely hopeless.\pHere!\nI'll restore your Pokémon for you.$"
 
 MCRoom_EventScript_BattleCheren_Text_5:
-# 659 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 660 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "{PLAYER}'s Pokémon needs\nto be fixed up, too.$"
 
 MCRoom_EventScript_BattleCheren_Text_6:
-# 673 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 674 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Hey, Cheren!\nHow about you battle, too?\pWith all you know, I'm sure you can\nbattle without  turning the room into\la disaster area like I did!$"
 
 MCRoom_EventScript_BattleCheren_Text_7:
-# 675 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 676 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: I believe you're right!\pIt'll be no problem for me to keep\nthe room from getting any mesier.\p Besides, it's not fair if you two are the\nonly ones who get to have fun battling!$"
 
 MCRoom_EventScript_BattleCheren_Text_8:
-# 685 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 686 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, Tepig!$"
 
 MCRoom_EventScript_BattleCheren_Text_9:
-# 687 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 688 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, Oshawott!$"
 
 MCRoom_EventScript_BattleCheren_Text_10:
-# 689 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 690 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, Snivy!$"
 
 MCRoom_EventScript_PostBattles_Text_0:
-# 706 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 707 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: I made a strange blunder\nin my first battle, but\lthis feeling I have...\l...I'm finally a Trainer .\pBut first, we'd better go apologize to\nyour mother about this messed-up room.$"
 
 MCRoom_EventScript_PostBattles_Text_1:
-# 710 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 711 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Oh!\nI'd better come, too!$"
 
 MCRoom_EventScript_Cheren_Text_0:
-# 778 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 779 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Hi {PLAYER}!$"
 
 MCRoom_EventScript_Bianca_Text_0:
-# 790 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 791 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Hi {PLAYER}!$"
 
 MCRoom_Text_BiancaDefeated::
-# 739 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 740 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "The Pokémon on both sides did their\nbest!$"
 
 MCRoom_Text_CherenDefeated::
-# 759 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 760 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Ah! So that's a Pokémon battle!$"
 
 MCRoom_Text_CherenWaitingForStarterChoice::
-# 763 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 764 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Cheren: Would you get a move on\nand open the bag already?\pI'm sure the Pokémon are just as\nexcited to meet us!$"
 
 MCRoom_Text_BiancaWaitingForStarterChoice::
-# 767 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+# 768 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Bianca: Ooh!\nWhat kind of Pokémon could they be?$"

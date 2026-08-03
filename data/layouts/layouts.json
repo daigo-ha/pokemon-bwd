@@ -106,7 +106,7 @@
       "name": "OldaleTown_Layout",
       "width": 30,
       "height": 36,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_NewGeneral",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/OldaleTown/border.bin",
       "blockdata_filepath": "data/layouts/OldaleTown/map.bin"
