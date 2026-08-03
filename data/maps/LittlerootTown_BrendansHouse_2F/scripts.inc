@@ -1221,6 +1221,13 @@ MCRoom_EventScript_BattleBianca::
 	case 2, MCRoom_EventScript_BattleBianca_5
 MCRoom_EventScript_BattleBianca_1:
 # 628 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
+
+LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC::
+	setvar VAR_0x8004, PC_LOCATION_BRENDANS_HOUSE
+	special DoPCTurnOnEffect
+	playse SE_PC_ON
+	msgbox gText_PlayerHouseBootPC, MSGBOX_DEFAULT
+	special BedroomPC
 	releaseall
 	end
 
@@ -1448,6 +1455,10 @@ MCRoom_EventScript_StartCherenBattleSnivy::
 # 743 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_PostBattles
 	end
+
+Common_Text_LookCloserAtMap:
+	.string "{PLAYER} took a closer look at the\n"
+	.string "{REGION} region map.$"
 
 
 MCRoom_EventScript_StartCherenBattleTepig::
