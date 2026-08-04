@@ -51,13 +51,13 @@
 
 #else
 
-#define FLAG_STARTER_SNIVY   0x20 // Unused Flag
-#define FLAG_STARTER_TEPIG   0x21 // Unused Flag
-#define FLAG_STARTER_OSHAWOTT 0x22 // Unused Flag
-#define FLAG_STARTER_BAG     0x23 // Unused Flag
-#define FLAG_STARTSCENE      0x24 // Unused Flag
-#define FLAG_BEGGINING_BIANCA 0x25 // Unused Flag
-#define FLAG_BEGGINING_CHEREN 0x26 // Unused Flag
+#define FLAG_STARTER_SNIVY   0x20
+#define FLAG_STARTER_TEPIG   0x21
+#define FLAG_STARTER_OSHAWOTT 0x22
+#define FLAG_STARTER_BAG     0x23
+#define FLAG_STARTSCENE      0x24
+#define FLAG_BEGGINING_BIANCA 0x25
+#define FLAG_BEGGINING_CHEREN 0x26
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag

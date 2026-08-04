@@ -3,6 +3,7 @@
   "name": "NewBirchsLab",
   "layout": "LAYOUT_NEW_BIRCHS_LAB",
   "music": "MUS_LITTLEROOT",
+  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
