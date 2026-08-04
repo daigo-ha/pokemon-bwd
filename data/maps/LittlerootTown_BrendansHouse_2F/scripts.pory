@@ -611,8 +611,8 @@ script MCRoom_EventScript_BattleBianca{
 	msgbox("Hey, I know!\nLet's have a Pokémon battle!$")
 	msgbox("Cheren: Honestly, Bianca...$")
 	msgbox("Even though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\linside a house.$")
-	msgbox("Don't be a worrywart!\nThese little ones are weak, like you said.$")
-	msgbox("We have to let them battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$")
+	msgbox("Don't be a worrywart!\nThese little ones are weak,\llike you said.$")
+	msgbox("We have to let them battle so they'll\nget stronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$")
 	waitmessage
 	applymovement(LOCALID_MC2F_BIANCA, Common_Movement_Delay48)
 	waitmovement(0)
@@ -650,7 +650,7 @@ script MCRoom_EventScript_BattleCheren{
 	applymovement(LOCALID_MC2F_BIANCA, moves(face_left))
 	waitmovement(0)
 	msgbox("Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!$")
-	msgbox("I'm so glad that I get to have a Pokémon!$")
+	msgbox("I'm so glad that I get to have\na Pokémon!$")
 	msgbox("...Oh.\nUm, sorry about your room, {PLAYER}.$")
 	waitmessage
 	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down * 2, face_right))
@@ -735,7 +735,7 @@ script MCRoom_EventScript_StartBiancaBattleOshawott{
 }
 
 text MCRoom_Text_BiancaDefeated{
-	"The Pokémon on both sides did their best!"
+	"The Pokémon on both sides\ndid their best!"
 }
 
 script MCRoom_EventScript_StartCherenBattleSnivy{

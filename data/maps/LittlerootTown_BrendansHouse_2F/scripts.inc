@@ -1221,13 +1221,6 @@ MCRoom_EventScript_BattleBianca::
 	case 2, MCRoom_EventScript_BattleBianca_5
 MCRoom_EventScript_BattleBianca_1:
 # 628 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-
-LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC::
-	setvar VAR_0x8004, PC_LOCATION_BRENDANS_HOUSE
-	special DoPCTurnOnEffect
-	playse SE_PC_ON
-	msgbox gText_PlayerHouseBootPC, MSGBOX_DEFAULT
-	special BedroomPC
 	releaseall
 	end
 
@@ -1455,10 +1448,6 @@ MCRoom_EventScript_StartCherenBattleSnivy::
 # 743 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call MCRoom_EventScript_PostBattles
 	end
-
-Common_Text_LookCloserAtMap:
-	.string "{PLAYER} took a closer look at the\n"
-	.string "{REGION} region map.$"
 
 
 MCRoom_EventScript_StartCherenBattleTepig::
@@ -1827,11 +1816,11 @@ MCRoom_EventScript_BattleBianca_Text_6:
 
 MCRoom_EventScript_BattleBianca_Text_7:
 # 614 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "Don't be a worrywart!\nThese little ones are weak, like you said.$"
+	.string "Don't be a worrywart!\nThese little ones are weak,\llike you said.$"
 
 MCRoom_EventScript_BattleBianca_Text_8:
 # 615 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "We have to let them battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$"
+	.string "We have to let them battle so they'll\nget stronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$"
 
 MCRoom_EventScript_BattleCheren_Text_0:
 # 633 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -1863,7 +1852,7 @@ MCRoom_EventScript_BattleCheren_Text_6:
 
 MCRoom_EventScript_BattleCheren_Text_7:
 # 653 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "I'm so glad that I get to have a Pokémon!$"
+	.string "I'm so glad that I get to have\na Pokémon!$"
 
 MCRoom_EventScript_BattleCheren_Text_8:
 # 654 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -1923,7 +1912,7 @@ MCRoom_EventScript_PostBattles_Text_2:
 
 MCRoom_Text_BiancaDefeated::
 # 737 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "The Pokémon on both sides did their best!$"
+	.string "The Pokémon on both sides\ndid their best!$"
 
 MCRoom_Text_CherenDefeated::
 # 757 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
