@@ -1,0 +1,514 @@
+mapscripts PalletTown_PlayersHouse_2F_Frlg_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PalletTown_PlayersHouse_2F_OnTransition
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PalletTown_PlayersHouse_2F_OnWarp
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_LITTLEROOT_START, 1: MCRoom_EventScript_Beggining
+	]
+}
+
+script PalletTown_PlayersHouse_2F_OnTransition {
+	if (var(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F) == 0) {
+		call(PalletTown_PlayersHouse_2F_EventScript_SetRespawn)
+		}
+	setvar(VAR_LITTLEROOT_START, 1)
+	if (!flag(FLAG_STARTER_BAG)) {
+		call(MCRoom_EventScript_StarterBag)
+	}
+	removeobject(LOCALID_MC2F_BIANCA)
+	setflag(FLAG_MC2F_BIANCA)
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_SetRespawn {setrespawn(HEAL_LOCATION_PALLET_TOWN)}
+
+script PalletTown_PlayersHouse_2F_OnWarp {
+	if (var(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F) == 0) {
+		call(PalletTown_PlayersHouse_2F_FirstWarpIn)
+	}
+}
+
+script PalletTown_PlayersHouse_2F_FirstWarpIn {setvar(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1)}
+
+script PalletTown_PlayersHouse_2F_EventScript_NES {msgbox("{PLAYER} played with the NES.\p…Okay!\nIt's time to go!", MSGBOX_SIGN)}
+
+script PalletTown_PlayersHouse_2F_EventScript_Sign {msgbox("It's a posted notice…\pIf you're confused, ask for HELP!\nPress the L or R Button!", MSGBOX_SIGN)}
+
+
+script MCRoom_EventScript_Starter{
+	while (!(flag(FLAG_STARTER_SNIVY) || flag(FLAG_STARTER_TEPIG) || flag(FLAG_STARTER_OSHAWOTT))){
+		lockall
+		msgbox("{PLAYER} opened the bag!")
+		message("Which starter are you choosing?")
+		waitmessage
+		multichoice(20, 5, MULTI_STARTER_CHOICE, 0)
+		closemessage
+		if (var(VAR_RESULT) == 0){
+			call(StarterFade)
+			call(MCRoom_EventScript_Snivy)
+		}
+		elif (var(VAR_RESULT) == 1){
+			call(StarterFade)
+			call(MCRoom_EventScript_Tepig)
+		}
+		elif (var(VAR_RESULT) == 2){
+			call(StarterFade)
+			call(MCRoom_EventScript_Oshawott)
+		}
+		else {
+			msgbox("Cheren: Go on. We are waiting...")
+			waitmessage
+		}
+	}
+	closemessage
+	// else {
+	// 	msgbox("The bag is empty.", MSGBOX_DEFAULT)
+	// }
+	setvar(VAR_LITTLEROOT_START, 3)
+	call(MCRoom_EventScript_BattleBianca)
+	releaseall
+	end
+}
+
+script StarterFade {
+	fadescreen(FADE_TO_BLACK)
+	delay(20)
+	fadescreen(FADE_FROM_BLACK)
+	return
+}
+
+script MCRoom_EventScript_Snivy{
+	
+	showmonpic(SPECIES_SNIVY, 10, 3)
+	msgbox("Are you sure?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES){
+		givemon(SPECIES_SNIVY, 5, ITEM_ORAN_BERRY)
+		if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("Received Snivy")
+			removeobject(0)
+			setflag(FLAG_STARTER_SNIVY)
+            setflag(FLAG_SYS_POKEMON_GET)
+			setvar(VAR_STARTER_MON_FRLG, 0)
+			call(NicknamePartyMon)
+		}
+		elif (var(VAR_RESULT) == MON_GIVEN_TO_PC){
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("Received Snivy")
+			removeobject(0)
+			setflag(FLAG_STARTER_SNIVY)
+            setflag(FLAG_SYS_POKEMON_GET)
+			call(NicknameBoxMon)
+		}
+		else {
+			hidemonpic
+			msgbox("You have no more room for this Pokemon.")
+		}
+	}
+	else {
+		hidemonpic
+		msgbox("You did not choose the Pokemon")
+	}
+	waitmessage
+	return
+}
+
+script MCRoom_EventScript_Tepig{
+	
+	showmonpic(SPECIES_TEPIG, 10, 3)
+	msgbox("Are you sure?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES){
+		givemon(SPECIES_TEPIG, 5, ITEM_ORAN_BERRY)
+		if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("Received Tepig")
+			removeobject(1)
+			setflag(FLAG_STARTER_TEPIG)
+            setflag(FLAG_SYS_POKEMON_GET)
+			setvar(VAR_STARTER_MON_FRLG, 1)
+			call(NicknamePartyMon)
+		}
+		elif (var(VAR_RESULT) == MON_GIVEN_TO_PC){
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("Received Tepig")
+			removeobject(1)
+			setflag(FLAG_STARTER_TEPIG)
+            setflag(FLAG_SYS_POKEMON_GET)
+			call(NicknameBoxMon)
+		}
+		else {
+			hidemonpic
+			msgbox("You have no more room for this Pokemon.")
+		}
+	}
+	else {
+		hidemonpic
+		msgbox("You did not choose the Pokemon")
+	}
+	waitmessage
+	return
+}
+
+script MCRoom_EventScript_Oshawott{
+
+	showmonpic(SPECIES_OSHAWOTT, 10, 3)
+	msgbox("Are you sure?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES){
+		givemon(SPECIES_OSHAWOTT, 5, ITEM_ORAN_BERRY)
+		if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("Received Oshawott")
+			removeobject(2)
+			setflag(FLAG_STARTER_OSHAWOTT)
+            setflag(FLAG_SYS_POKEMON_GET)
+			setvar(VAR_STARTER_MON_FRLG, 2)
+			call(NicknamePartyMon)
+		}
+		elif (var(VAR_RESULT) == MON_GIVEN_TO_PC){
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("Received Oshawott")
+			removeobject(2)
+			setflag(FLAG_STARTER_OSHAWOTT)
+            setflag(FLAG_SYS_POKEMON_GET)
+			call(NicknameBoxMon)
+		}
+		else {
+			hidemonpic
+			msgbox("You have no more room for this Pokemon.")
+		}
+	}
+	else {
+		hidemonpic
+		msgbox("You did not choose the Pokemon")
+	}
+	waitmessage
+	return
+}
+
+script NicknamePartyMon{ // Revisar que se esté ejecutando correctamente
+	
+	msgbox("Do you want to give it a nickname?", MSGBOX_YESNO)
+	waitbuttonpress
+	hidemonpic
+	if (var(VAR_RESULT) == YES){
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+}
+
+script NicknameBoxMon{
+
+    msgbox("Do you want to give it a nickname?", MSGBOX_YESNO)
+	waitbuttonpress
+    hidemonpic
+    if (var(VAR_RESULT) == YES){
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    call(Common_EventScript_TransferredToPC)
+}
+
+script MCRoom_EventScript_StarterBag{
+	if (!(flag(FLAG_STARTER_SNIVY) || flag(FLAG_STARTER_TEPIG) || flag(FLAG_STARTER_OSHAWOTT))){
+		setvar(VAR_LITTLEROOT_START, 1)
+		clearflag(FLAG_STARTER_BAG)
+	}
+	else {
+		setflag(FLAG_STARTER_BAG)
+	}
+}
+
+script MCRoom_EventScript_DoNotLeaveBeggining{
+	lockall
+	msgbox("Cheren: Come here {PLAYER}!$")
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
+	waitmovement(0)
+	releaseall
+}
+
+script MCRoom_EventScript_Beggining{
+	lockall
+
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down))
+	waitmovement(0)
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_left))
+	msgbox("Cheren: {PLAYER}!\pI heard from Professor Juniper.\nWe can have a Pokémon?$")
+	waitmessage
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_down))
+	waitmovement(0)
+	msgbox("...\n...$")
+	msgbox("Cheren: What's keeping Bianca?$")
+	waitmessage
+	closemessage
+	delay(90)
+	clearflag(FLAG_MC2F_BIANCA)
+	showobjectat(LOCALID_MC2F_BIANCA, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_northeast * 2, walk_right))
+	waitmovement(0)
+	opendoor(8, 1)
+	waitdooranim
+	delay(60)
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_left))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_up))
+	waitmovement(0)
+	msgbox("Bianca: Am I a little late again?\nSo-oooo-orry!$")
+	waitmessage
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right, walk_up))
+	waitmovement(0)
+	msgbox("Cheren: Bianca...\lI've known for ten years that you\nhave no sense of time, but...seriously...\pToday's 
+			the day we can get a\nPokémon from Professor Juniper!$")
+	waitmessage
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_southwest * 2, walk_left))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_down, walk_left * 4, face_down))
+	waitmovement(0)
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_left))
+	waitmovement(0)
+	msgbox("Bianca: I know. Sorry, {PLAYER}.\nSorry, Cheren.$")
+	waitmessage
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_left, walk_down * 2, face_right))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+	waitmovement(0)
+	msgbox("Bianca: So, where are the Pokémon?\pThey were delivered to {PLAYER}'s\nhouse, so {PLAYER} gets first pick.$")
+	msgbox("Cheren: Naturally.$")
+	waitmessage
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down, walk_left, face_down))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_down))
+	waitmovement(0)
+	msgbox("The Pokémon are waiting for us\ninside that bag.\pOK, {PLAYER}, you go first and take\na peek at the bag.\p
+			I want to meet the Pokémon right now!$")
+	waitmessage
+	
+	special(RemoveCameraObject)
+	setvar(VAR_LITTLEROOT_START, 2)
+	setflag(FLAG_SYS_B_DASH)
+	releaseall
+}
+
+movement Movement_MCStart1{
+	walk_left * 2
+	walk_down * 2
+}
+
+script MCRoom_EventScript_ChooseNow{
+	lockall
+	msgbox("Hey, don't leave.\nWe're waiting.$")
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+	waitmovement(0)
+	releaseall
+}
+
+script MCRoom_EventScript_BattleBianca{
+	lockall
+	// After choosing starter
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_down, face_right))
+	waitmovement(0)
+	msgbox("Bianca: OK, I'll take this Pokémon!\nCheren, that one's yours!$")
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down, face_left))
+	waitmovement(0)
+	if (var(VAR_STARTER_MON_FRLG) == 0){ // Snivy
+		msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Tepig\nfrom the start, 
+				anyway.$")
+	}
+	elif (var(VAR_STARTER_MON_FRLG) == 1){ // Tepig
+		msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Oshawott\nfrom the start, 
+				anyway.$")
+	}
+	elif (var(VAR_STARTER_MON_FRLG) == 2){ // Oshawott
+		msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\pOh, never mind. I wanted Snivy\nfrom the start, 
+				anyway.$")
+	}
+	waitmessage
+	fadescreen(FADE_TO_BLACK)
+	removeobject(15)
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_fast_up * 4, face_down))
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_fast_up * 2, face_right))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_fast_right * 3, walk_fast_up * 2, face_left))
+	waitmovement(0)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("Bianca: Everyone has chosen a Pokémon!\n...So that's that!\pHey, I know!\nLet's have a Pokémon battle!$")
+	msgbox("Cheren: Honestly, Bianca...\pEven though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\l
+			inside a house.\pDon't be a worrywart!\nThese little ones are weak, like you said.\pWe have to let them 
+			battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$")
+	waitmessage
+	applymovement(LOCALID_MC2F_BIANCA, Common_Movement_Delay48)
+	waitmovement(0)
+	// Battle with Bianca
+	switch (var(VAR_STARTER_MON_FRLG)){
+		case 0: 
+			call(MCRoom_EventScript_StartBiancaBattleSnivy)
+		case 1: 
+			call(MCRoom_EventScript_StartBiancaBattleTepig)
+		case 2: 
+			call(MCRoom_EventScript_StartBiancaBattleOshawott)
+	}
+	releaseall
+	end
+}
+script MCRoom_EventScript_BattleCheren{
+	lockall
+	msgbox("Bianca: Wow...\p{PLAYER}, you're gonna be\nan awesome Trainer someday, I can tell!\pNo doubt!$")
+	waitmessage
+	msgbox("Cheren: Uh...\n...\pBianca, Would you take a look around?$")
+	waitmessage
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_right))
+	waitmovement(0)
+	delay(60)
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_up))
+	waitmovement(0)
+	delay(60)
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_down))
+	waitmovement(0)
+	delay(60)
+	msgbox("Bianca: Wh-whoa!\nWhat happened?!$")
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_left))
+	waitmovement(0)
+	msgbox("Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!\pI'm so glad that I get to have a\nPokémon!\p
+			...Oh.\nUm, sorry about your room, {PLAYER}.$")
+	waitmessage
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down * 2, face_right))
+	waitmovement(0)
+	msgbox("Cheren: You...are completely hopeless.\pHere!\nI'll restore your Pokémon for you.$")
+	// Heals Bianca's Pokémon
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_left))
+	waitmovement(0)
+	// msgbox("Cheren: It's amazing that you won\nwithout your Pokémon's losing any\lenergy, which is called HP.\pBut you used some of the moves' Power Points, or PP, though.$")
+	msgbox("{PLAYER}'s Pokémon needs\nto be fixed up, too.$")
+	// Heals {PLAYER}'s Pokémon
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	// Exclamation sign in Bianca
+	applymovement(LOCALID_MC2F_BIANCA, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(60)
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_up * 2, walk_left, face_down))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_up))
+	waitmovement(0)
+	msgbox("Bianca: Hey, Cheren!\nHow about you battle, too?\pWith all you know, I'm sure you can\nbattle without 
+			turning the room into\la disaster area like I did!$")
+	msgbox("Cheren: I believe you're right!\pIt'll be no problem for me to keep\nthe room from getting any mesier.\p
+			Besides, it's not fair if you two are the\nonly ones who get to have fun battling!$")
+	waitmessage
+	closemessage
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right, face_left))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+	waitmovement(0)
+	switch (var(VAR_STARTER_MON_FRLG)) {
+		case 0: // Snivy
+			msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, Tepig!$")
+		case 1: // Tepig
+			msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, Oshawott!$")
+		case 2: // Oshawott
+			msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!\pLet's see what you can do, Snivy!$")
+	}
+	waitmessage
+	closemessage
+	applymovement(LOCALID_MC2F_CHEREN, Common_Movement_Delay48)
+	waitmovement(0)
+	// Battle with cheren
+	switch (var(VAR_STARTER_MON_FRLG)) {
+		case 0: call(MCRoom_EventScript_StartCherenBattleSnivy)
+		case 1: call(MCRoom_EventScript_StartCherenBattleTepig)
+		case 2: call(MCRoom_EventScript_StartCherenBattleOshawott)
+	}
+	releaseall
+	end
+}
+script MCRoom_EventScript_PostBattles{
+	lockall
+	msgbox("Cheren: I made a strange blunder\nin my first battle, but\lthis feeling I have...\l...I'm finally a Trainer
+			.\pBut first, we'd better go apologize to\nyour mother about this messed-up room.$")
+	waitmessage
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right * 2, walk_up * 2, walk_right))
+	msgbox("Bianca: Oh!\nI'd better come, too!$")
+	waitmessage
+	removeobject(LOCALID_MC2F_CHEREN)
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_right * 4))
+	waitmovement(0)
+	removeobject(LOCALID_MC2F_BIANCA)
+
+	setflag(FLAG_MC2F_BIANCA)
+	setflag(FLAG_MC2F_CHEREN)
+	releaseall
+	end
+}
+
+script MCRoom_EventScript_StartBiancaBattleSnivy{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_TREECKO, MCRoom_Text_BiancaDefeated)
+	call(MCRoom_EventScript_BattleCheren)
+	end
+}
+script MCRoom_EventScript_StartBiancaBattleTepig{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_TORCHIC, MCRoom_Text_BiancaDefeated)
+	call(MCRoom_EventScript_BattleCheren)
+	end
+}
+script MCRoom_EventScript_StartBiancaBattleOshawott{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_MUDKIP, MCRoom_Text_BiancaDefeated)
+	call(MCRoom_EventScript_BattleCheren)
+	end
+}
+
+text MCRoom_Text_BiancaDefeated{
+	"The Pokémon on both sides did their\nbest!"
+}
+
+script MCRoom_EventScript_StartCherenBattleSnivy{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_103_TREECKO, MCRoom_Text_CherenDefeated)
+	call(MCRoom_EventScript_PostBattles)
+	end
+}
+script MCRoom_EventScript_StartCherenBattleTepig{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_103_TORCHIC, MCRoom_Text_CherenDefeated)
+	call(MCRoom_EventScript_PostBattles)
+	end
+}
+script MCRoom_EventScript_StartCherenBattleOshawott{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_103_MUDKIP, MCRoom_Text_CherenDefeated)
+	call(MCRoom_EventScript_PostBattles)
+	end
+}
+
+text MCRoom_Text_CherenDefeated{
+	"Ah! So that's a Pokémon battle!"
+}
+
+text MCRoom_Text_CherenWaitingForStarterChoice {
+	"Cheren: Would you get a move on\nand open the bag already?\pI'm sure the Pokémon are just as\nexcited to meet us!"
+}
+
+text MCRoom_Text_BiancaWaitingForStarterChoice {
+	"Bianca: Ooh!\nWhat kind of Pokémon could they be?"
+}
+
+script MCRoom_EventScript_Cheren {
+	lock
+	faceplayer
+	if (var(VAR_LITTLEROOT_START) == 2) {
+		msgbox(MCRoom_Text_CherenWaitingForStarterChoice)
+	}
+	else {
+		msgbox("Cheren: Hi {PLAYER}!$")
+	}
+	release
+}
+
+script MCRoom_EventScript_Bianca {
+	lock
+	faceplayer
+	if (var(VAR_LITTLEROOT_START) == 2) {
+		msgbox(MCRoom_Text_BiancaWaitingForStarterChoice)
+	}
+	else {
+		msgbox("Bianca: Hi {PLAYER}!$")
+	}
+	release
+}

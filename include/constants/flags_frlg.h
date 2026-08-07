@@ -2,13 +2,13 @@
 #define GUARD_CONSTANTS_FLAGS_FRLG_H
 
 
-#define FLAG_0x020               0x020
-#define FLAG_0x021               0x021
-#define FLAG_0x022               0x022
-#define FLAG_0x023               0x023
-#define FLAG_0x024               0x024
-#define FLAG_0x025               0x025
-#define FLAG_0x026               0x026
+#define FLAG_STARTER_SNIVY       0x020
+#define FLAG_STARTER_TEPIG       0x021
+#define FLAG_STARTER_OSHAWOTT    0x022
+#define FLAG_STARTER_BAG         0x023
+#define FLAG_STARTSCENE          0x024
+#define FLAG_MC2F_BIANCA         0x025
+#define FLAG_MC2F_CHEREN         0x026
 #define FLAG_0x027               0x027
 
 // Hide/show flags
@@ -149,10 +149,10 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_0x0AF               0x0AF
-#define FLAG_0x0B0               0x0B0
-#define FLAG_0x0B1               0x0B1
-#define FLAG_0x0B2               0x0B2
+#define FLAG_MC1F_BIANCA         0x0AF
+#define FLAG_MC1F_CHEREN         0x0B0
+#define FLAG_HIDE_LITTLEROOT_TOWN_BIANCA               0x0B1
+#define FLAG_HIDE_LITTLEROOT_TOWN_CHEREN               0x0B2
 #define FLAG_0x0B3               0x0B3
 #define FLAG_0x0B4               0x0B4
 #define FLAG_0x0B5               0x0B5

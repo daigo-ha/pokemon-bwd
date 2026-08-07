@@ -1,0 +1,174 @@
+raw `
+PalletTown_PlayersHouse_1F_Frlg_MapScripts::
+	.byte 0
+
+PalletTown_PlayersHouse_1F_EventScript_Mom::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_RIVAL_IN_OAKS_LAB, PalletTown_PlayersHouse_1F_EventScript_MomHeal
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, PalletTown_PlayersHouse_1F_EventScript_MomOakLookingForYouMale
+	call_if_eq VAR_RESULT, FEMALE, PalletTown_PlayersHouse_1F_EventScript_MomOakLookingForYouFemale
+	closemessage
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
+PalletTown_PlayersHouse_1F_EventScript_MomOakLookingForYouMale::
+	msgbox PalletTown_PlayersHouse_1F_Text_AllBoysLeaveOakLookingForYou
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_MomOakLookingForYouFemale::
+	msgbox PalletTown_PlayersHouse_1F_Text_AllGirlsLeaveOakLookingForYou
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_MomHeal::
+	msgbox PalletTown_PlayersHouse_1F_Text_YouShouldTakeQuickRest
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	msgbox PalletTown_PlayersHouse_1F_Text_LookingGreatTakeCare
+	release
+	end
+
+@ Displays special text if interacted with from side or back (which are normally inaccessible)
+PalletTown_PlayersHouse_1F_EventScript_TV::
+	lockall
+	goto_if_eq VAR_FACING, DIR_NORTH, PalletTown_PlayersHouse_1F_EventScript_TVScreen
+	msgbox PalletTown_PlayersHouse_1F_Text_OopsWrongSide
+	releaseall
+	end
+
+PalletTown_PlayersHouse_1F_EventScript_TVScreen::
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, PalletTown_PlayersHouse_1F_EventScript_TVScreenMale
+	call_if_eq VAR_RESULT, FEMALE, PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale
+	releaseall
+	end
+
+PalletTown_PlayersHouse_1F_EventScript_TVScreenMale::
+	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale::
+	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad
+	return
+
+PalletTown_PlayersHouse_1F_Text_AllBoysLeaveOakLookingForYou::
+	.string "MOM: …Right.\n"
+	.string "All boys leave home someday.\l"
+	.string "It said so on TV.\p"
+	.string "Oh, yes. PROF. OAK, next door, was\n"
+	.string "looking for you.$"
+
+PalletTown_PlayersHouse_1F_Text_AllGirlsLeaveOakLookingForYou::
+	.string "MOM: …Right.\n"
+	.string "All girls dream of traveling.\l"
+	.string "It said so on TV.\p"
+	.string "Oh, yes. PROF. OAK, next door, was\n"
+	.string "looking for you.$"
+
+PalletTown_PlayersHouse_1F_Text_YouShouldTakeQuickRest::
+	.string "MOM: {PLAYER}!\n"
+	.string "You should take a quick rest.$"
+
+PalletTown_PlayersHouse_1F_Text_LookingGreatTakeCare::
+	.string "MOM: Oh, good! You and your\n"
+	.string "POKéMON are looking great.\l"
+	.string "Take care now!$"
+
+PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad::
+	.string "There's a movie on TV.\n"
+	.string "Four boys are walking on railroad\l"
+	.string "tracks.\p"
+	.string "…I better go, too.$"
+
+PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad::
+	.string "There's a movie on TV.\n"
+	.string "A girl with her hair in pigtails is\l"
+	.string "walking up a brick road.\p"
+	.string "…I better go, too.$"
+
+PalletTown_PlayersHouse_1F_Text_OopsWrongSide::
+	.string "Oops, wrong side…$"
+`
+
+script MC1F_EventScript_MomApologize{
+	lockall
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_slow_diag_southeast * 2))
+	waitmovement(0)
+	msgbox("Cheren: I'm very sorry about all the\ntrouble, ma'am.$")
+	applymovement(LOCALID_MC1F_BIANCA, moves(walk_slow_right))
+	waitmovement(0)
+	msgbox("Bianca: Well, um...\nWe can clean up...\pMom: Cleaning up?\nNo worries. I'll take care of it later.\pShouldn't you be on your way to\nmeet Professor Juniper?\pCheren: Yes, thank you!\nPlease excuse us.\pCome on.\nLet's go thank Professor Juniper.")
+	applymovement(LOCALID_MC1F_CHEREN, moves(walk_left, face_up))
+	waitmovement(0)
+	msgbox("Cheren: I'll be waiting in front of\nthe Pokémon Research Lab.")
+	applymovement(LOCALID_MC1F_BIANCA, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(30)
+	applymovement(LOCALID_MC1F_BIANCA, moves(face_up))
+	waitmovement(0)
+	msgbox("Bianca: Oh! Wait!\nI've gotta go home first.")
+	applymovement(LOCALID_MC1F_BIANCA, moves(face_right))
+	waitmovement(0)
+	msgbox("Thanks for having us over!")
+	closemessage
+	applymovement(LOCALID_MC1F_CHEREN, moves(walk_right))
+	waitmovement(0)
+	applymovement(LOCALID_MC1F_CHEREN, moves(walk_down * 2, walk_right * 2, walk_down * 2))
+	applymovement(LOCALID_MC1F_BIANCA, moves(walk_down * 3, walk_right * 2, walk_down * 2))
+	waitmovement(0)
+	removeobject(LOCALID_MC1F_CHEREN)
+	removeobject(LOCALID_MC1F_BIANCA)
+	setflag(FLAG_MC1F_CHEREN)
+	setflag(FLAG_MC1F_BIANCA)
+
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_slow_diag_northwest * 2))
+	waitmovement(0)
+	delay(30)
+	applymovement(LOCALID_PLAYERS_HOUSE_1F_MOM, moves(walk_left * 2, walk_up * 3, face_left))
+	waitmovement(0)
+	delay(30)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+	waitmovement(0)
+	delay(30)
+	msgbox("Mom: My, My, {PLAYER}.\pPokémon battles are so lively,\naren't they?\pI could hear the Pokémon's\ncries clear down here!")
+	applymovement(LOCALID_PLAYERS_HOUSE_1F_MOM, moves(face_down))
+	waitmovement(0)
+	msgbox("Hm. That sure reminded me of\nmy first Pokémon battle!")
+	applymovement(LOCALID_PLAYERS_HOUSE_1F_MOM, moves(face_left))
+	waitmovement(0)
+	msgbox("Oh, and you know? After a battle,\nyou need to rest your Pokémon!")
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("Your Pokémon is looking great!\pNow, if you're going out,\ndon't forget your 'cross-transceiver'!")
+	closemessage
+	playfanfare(MUS_RG_OBTAIN_KEY_ITEM)
+	waitfanfare
+	msgbox("You're going to thank the\nprofessor too, right?\lBetter get going, honey!$")
+
+	special(RemoveCameraObject)
+	setvar(VAR_LITTLEROOT_START, 4)
+	releaseall
+}
+
+script MC1F_EventScript_Mom {
+	lockall
+	if (var(VAR_LITTLEROOT_START) < 5) {
+		msgbox(MC1F_Text_GoThankProfJuniper)
+	} else {
+		msgbox("Mom: Hi, {PLAYER}!")
+	}
+	closemessage
+	releaseall
+}
+
+text MC1F_Text_GoThankProfJuniper {
+	"You're going to thank the\nprofessor too, right?\lBetter get going, honey!$"
+}

@@ -1015,15 +1015,3 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
-LittlerootTown_EventScript_StartingScene::
-	setflag FLAG_STARTSCENE
-	return
-
-LittlerootTown_EventScript_CherensHouseSign::
-	lockall
-	msgbox LittlerootTown_Text_CherensHouse, MSGBOX_SIGN
-	releaseall
-	end
-
-LittlerootTown_Text_CherensHouse:
-	.string "CHEREN'S HOUSE$"
