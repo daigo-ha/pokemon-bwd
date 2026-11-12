@@ -6,104 +6,6 @@ Gender: Male
 Music: Male
 Double Battle: No
 
-=== TRAINER_YOUNGSTER_BEN ===
-Name: BEN
-Class: Youngster Frlg
-Pic: Youngster Frlg
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Rattata
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Ekans
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_YOUNGSTER_CALVIN ===
-Name: CALVIN
-Class: Youngster Frlg
-Pic: Youngster Frlg
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Spearow
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_YOUNGSTER_JOSH ===
-Name: JOSH
-Class: Youngster Frlg
-Pic: Youngster Frlg
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Rattata
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Rattata
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Zubat
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_YOUNGSTER_TIMMY ===
-Name: TIMMY
-Class: Youngster Frlg
-Pic: Youngster Frlg
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Sandshrew
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Ekans
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_YOUNGSTER_JOEY ===
-Name: JOEY
-Class: Youngster Frlg
-Pic: Youngster Frlg
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Rattata
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Spearow
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_YOUNGSTER_DAN ===
-Name: DAN
-Class: Youngster Frlg
-Pic: Youngster Frlg
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Slowpoke
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_YOUNGSTER_CHAD ===
 Name: CHAD
 Class: Youngster Frlg
@@ -13787,3 +13689,81 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Muk
 Level: 39
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_BIANCA_PLAYER_2F_SNIVY ===
+Name: BIANCA
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Oshawott
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BIANCA_PLAYER_2F_TEPIG ===
+Name: BIANCA
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Snivy
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BIANCA_PLAYER_2F_OSHAWOTT ===
+Name: BIANCA
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Tepig
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CHEREN_PLAYER_2F_SNIVY ===
+Name: CHEREN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Tepig
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CHEREN_PLAYER_2F_TEPIG ===
+Name: CHEREN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Oshawott
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CHEREN_PLAYER_2F_OSHAWOTT ===
+Name: CHEREN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Snivy
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

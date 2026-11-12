@@ -4,12 +4,12 @@
 #include "constants/battle_partner.h"
 
 #define TRAINER_NONE                               0
-#define TRAINER_YOUNGSTER_BEN                      1
-#define TRAINER_YOUNGSTER_CALVIN                   2
-#define TRAINER_YOUNGSTER_JOSH                     3
-#define TRAINER_YOUNGSTER_TIMMY                    4
-#define TRAINER_YOUNGSTER_JOEY                     5
-#define TRAINER_YOUNGSTER_DAN                      6
+#define TRAINER_BIANCA_PLAYER_2F_SNIVY             1
+#define TRAINER_BIANCA_PLAYER_2F_TEPIG             2
+#define TRAINER_BIANCA_PLAYER_2F_OSHAWOTT          3
+#define TRAINER_CHEREN_PLAYER_2F_SNIVY             4
+#define TRAINER_CHEREN_PLAYER_2F_TEPIG             5
+#define TRAINER_CHEREN_PLAYER_2F_OSHAWOTT          6
 #define TRAINER_YOUNGSTER_CHAD                     7
 #define TRAINER_YOUNGSTER_TYLER                    8
 #define TRAINER_YOUNGSTER_EDDIE                    9
