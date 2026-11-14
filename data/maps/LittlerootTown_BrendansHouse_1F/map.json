@@ -3,7 +3,6 @@
   "name": "LittlerootTown_BrendansHouse_1F",
   "layout": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
   "music": "MUS_LITTLEROOT",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,11 +11,13 @@
   "allow_escaping": false,
   "allow_running": false,
   "show_map_name": false,
+  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_PLAYERS_HOUSE_1F_MOM",
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MOM",
       "x": 4,
       "y": 5,
@@ -31,6 +32,7 @@
     },
     {
       "local_id": "LOCALID_RIVALS_HOUSE_1F_MOM",
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
       "x": 8,
       "y": 5,
@@ -45,6 +47,7 @@
     },
     {
       "local_id": "LOCALID_PLAYERS_HOUSE_1F_DAD",
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NORMAN",
       "x": 5,
       "y": 6,
@@ -58,6 +61,7 @@
       "flag": "FLAG_HIDE_PLAYERS_HOUSE_DAD"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 8,
       "y": 6,
@@ -72,6 +76,7 @@
     },
     {
       "local_id": "LOCALID_RIVALS_HOUSE_1F_RIVAL",
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL",
       "x": 4,
       "y": 8,
@@ -86,6 +91,7 @@
     },
     {
       "local_id": "LOCALID_MC1F_CHEREN",
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BRANDON",
       "x": 2,
       "y": 5,
@@ -100,6 +106,7 @@
     },
     {
       "local_id": "LOCALID_MC1F_BIANCA",
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GRETA",
       "x": 1,
       "y": 4,
@@ -165,5 +172,6 @@
       "script": "LittlerootTown_BrendansHouse_1F_EventScript_MeetRival2"
     }
   ],
-  "bg_events": []
+  "bg_events": [],
+  "region": "REGION_HOENN"
 }

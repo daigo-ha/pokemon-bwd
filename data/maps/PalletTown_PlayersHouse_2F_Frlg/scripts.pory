@@ -64,9 +64,13 @@ script MCRoom_EventScript_Starter{
 	// else {
 	// 	msgbox("The bag is empty.", MSGBOX_DEFAULT)
 	// }
-	setvar(VAR_LITTLEROOT_START, 3)
-	call(MCRoom_EventScript_BattleBianca)
-	releaseall
+	if (var(VAR_LITTLEROOT_START) == 4) {
+		releaseall
+	} else {
+		setvar(VAR_LITTLEROOT_START, 3)
+		call(MCRoom_EventScript_BattleBianca)
+		releaseall
+	}
 	end
 }
 
@@ -460,6 +464,7 @@ script MCRoom_EventScript_PostBattles{
 
 	setflag(FLAG_MC2F_BIANCA)
 	setflag(FLAG_MC2F_CHEREN)
+	setvar(VAR_LITTLEROOT_START, 4)
 	releaseall
 	end
 }
